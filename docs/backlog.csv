@@ -16,7 +16,7 @@ T-13,Listado de tickets,Tabla con estado prioridad y responsable,RF-03,Must,4,Cr
 T-14,Asignar responsable y cambiar estado,Actualizacion con reglas de flujo + historial,RF-04,Must,6,Cristóbal Chacón,2026-10-05,H3,Hecho
 T-15,Validaciones y manejo de errores,Validacion servidor + paginas de error amigables,CAL-01,Must,4,Cristóbal Chacón,2026-10-05,H3,Hecho
 T-16,Pruebas funcionales iniciales,Ejecutar CP-01 a CP-09 (automatizadas + manuales) y registrar defectos como issues,CAL-01,Must,5,Cristóbal Chacón,2026-10-06,H3,Hecho
-T-17,Reporte de Avance N.1,Planificado vs real + bloqueos + decisiones,-,Must,2,Cristóbal Chacón,2026-10-06,H3,Por hacer
+T-17,Reporte de Avance N.1,Planificado vs real + bloqueos + decisiones,-,Must,2,Cristóbal Chacón,2026-10-06,H3,Hecho
 T-18,Filtros,Filtro por estado prioridad y categoria,RF-05,Should,4,Cristóbal Chacón,2026-10-06,H3/H4,Hecho
 T-19,Resumen por estado,Total y cantidad por estado sobre el listado,RF-06,Should,3,Cristóbal Chacón,2026-10-07,H4,Hecho
 T-20,Integracion QA retest y analisis de cambio,Pruebas CP-10 a CP-14 + retest + registro del imprevisto,CAL-01,Must,7,Equipo,2026-10-07,H4,Backlog
