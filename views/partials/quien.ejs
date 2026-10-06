@@ -1,0 +1,13 @@
+        <div class="fila">
+          <div>
+            <label for="usuarioId-<%= sufijo %>">Realizado por</label>
+            <select id="usuarioId-<%= sufijo %>" name="usuarioId">
+              <option value="">Seleccione…</option>
+              <% usuarios.forEach((u) => { %><option value="<%= u.id %>"><%= u.nombre %></option><% }) %>
+            </select>
+          </div>
+          <div>
+            <label for="comentario-<%= sufijo %>">Comentario (opcional)</label>
+            <input id="comentario-<%= sufijo %>" name="comentario" maxlength="500">
+          </div>
+        </div>

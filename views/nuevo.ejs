@@ -1,0 +1,60 @@
+<%- include('partials/cabecera', { titulo }) %>
+
+<p><a href="/">← Volver al listado</a></p>
+<h1>Nueva solicitud</h1>
+
+<% if (error) { %><div class="alerta error" role="alert"><%= error %></div><% } %>
+
+<form class="formulario" method="post" action="/tickets" novalidate>
+  <label for="solicitanteId">Solicitante *</label>
+  <select id="solicitanteId" name="solicitanteId" class="<%= errores.solicitanteId ? 'invalido' : '' %>">
+    <option value="">Seleccione…</option>
+    <% usuarios.forEach((u) => { %>
+      <option value="<%= u.id %>" <%= String(u.id) === String(valores.solicitanteId) ? 'selected' : '' %>>
+        <%= u.nombre %><%= u.area ? ` (${u.area})` : '' %>
+      </option>
+    <% }) %>
+  </select>
+  <% if (errores.solicitanteId) { %><p class="msg-error"><%= errores.solicitanteId %></p><% } %>
+
+  <label for="titulo">Título *</label>
+  <input id="titulo" name="titulo" maxlength="120" value="<%= valores.titulo || '' %>"
+         class="<%= errores.titulo ? 'invalido' : '' %>" placeholder="Ej.: Notebook no enciende">
+  <% if (errores.titulo) { %><p class="msg-error"><%= errores.titulo %></p><% } %>
+
+  <label for="descripcion">Descripción *</label>
+  <textarea id="descripcion" name="descripcion" rows="5" maxlength="2000"
+            class="<%= errores.descripcion ? 'invalido' : '' %>"
+            placeholder="Describa el problema con el mayor detalle posible"><%= valores.descripcion || '' %></textarea>
+  <% if (errores.descripcion) { %><p class="msg-error"><%= errores.descripcion %></p><% } %>
+
+  <div class="fila">
+    <div>
+      <label for="categoriaId">Categoría *</label>
+      <select id="categoriaId" name="categoriaId" class="<%= errores.categoriaId ? 'invalido' : '' %>">
+        <option value="">Seleccione…</option>
+        <% categorias.forEach((c) => { %>
+          <option value="<%= c.id %>" <%= String(c.id) === String(valores.categoriaId) ? 'selected' : '' %>><%= c.nombre %></option>
+        <% }) %>
+      </select>
+      <% if (errores.categoriaId) { %><p class="msg-error"><%= errores.categoriaId %></p><% } %>
+    </div>
+    <div>
+      <label for="prioridad">Prioridad *</label>
+      <select id="prioridad" name="prioridad" class="<%= errores.prioridad ? 'invalido' : '' %>">
+        <% prioridades.forEach((p) => { %>
+          <option value="<%= p %>" <%= p === valores.prioridad ? 'selected' : '' %>><%= p %></option>
+        <% }) %>
+      </select>
+      <% if (errores.prioridad) { %><p class="msg-error"><%= errores.prioridad %></p><% } %>
+    </div>
+  </div>
+
+  <p class="nota">El código del ticket y la fecha de creación los asigna el sistema.</p>
+  <div class="acciones">
+    <button type="submit" class="boton primario">Registrar solicitud</button>
+    <a class="boton" href="/">Cancelar</a>
+  </div>
+</form>
+
+<%- include('partials/pie') %>

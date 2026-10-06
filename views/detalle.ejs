@@ -1,0 +1,82 @@
+<%- include('partials/cabecera', { titulo }) %>
+
+<p><a href="/">← Volver al listado</a></p>
+<h1><%= ticket.codigo %> · <%= ticket.titulo %></h1>
+
+<% if (ok) { %><div class="alerta exito" role="status"><%= ok %></div><% } %>
+<% if (error) { %><div class="alerta error" role="alert"><%= error %></div><% } %>
+
+<div class="dos-columnas">
+  <section class="caja">
+    <h2>Datos de la solicitud</h2>
+    <dl class="datos">
+      <dt>Estado</dt><dd><span class="etiqueta estado-<%= clase(ticket.estado) %>"><%= ticket.estado %></span></dd>
+      <dt>Prioridad</dt><dd><span class="etiqueta prioridad-<%= clase(ticket.prioridad) %>"><%= ticket.prioridad %></span></dd>
+      <dt>Categoría</dt><dd><%= ticket.categoria %></dd>
+      <dt>Solicitante</dt><dd><%= ticket.solicitante %><%= ticket.solicitante_area ? ` (${ticket.solicitante_area})` : '' %></dd>
+      <dt>Responsable</dt><dd><%= ticket.responsable || 'Sin asignar' %></dd>
+      <dt>Creado</dt><dd><%= fecha(ticket.fecha_creacion) %></dd>
+      <dt>Actualizado</dt><dd><%= fecha(ticket.fecha_actualizacion) %></dd>
+      <% if (ticket.fecha_cierre) { %><dt>Cerrado</dt><dd><%= fecha(ticket.fecha_cierre) %></dd><% } %>
+    </dl>
+    <h3>Descripción</h3>
+    <p class="descripcion"><%= ticket.descripcion %></p>
+  </section>
+
+  <section class="caja">
+    <h2>Actualizar</h2>
+    <% if (ticket.estado === 'Cerrado') { %>
+      <p class="nota">El ticket está cerrado; no admite más cambios.</p>
+    <% } else { %>
+      <form method="post" action="/tickets/<%= ticket.id %>/asignar" class="formulario compacto">
+        <label for="responsableId">Responsable</label>
+        <div class="fila-accion">
+          <select id="responsableId" name="responsableId">
+            <option value="">Seleccione técnico…</option>
+            <% tecnicos.forEach((t) => { %>
+              <option value="<%= t.id %>" <%= t.id === ticket.responsable_id ? 'selected' : '' %>><%= t.nombre %></option>
+            <% }) %>
+          </select>
+          <button type="submit" class="boton">Asignar</button>
+        </div>
+        <%- include('partials/quien', { sufijo: 'a' }) %>
+      </form>
+
+      <form method="post" action="/tickets/<%= ticket.id %>/estado" class="formulario compacto">
+        <label for="estado">Cambiar estado (actual: <%= ticket.estado %>)</label>
+        <div class="fila-accion">
+          <select id="estado" name="estado">
+            <% estadosPermitidos.forEach((e) => { %><option value="<%= e %>"><%= e %></option><% }) %>
+          </select>
+          <button type="submit" class="boton">Actualizar</button>
+        </div>
+        <%- include('partials/quien', { sufijo: 'e' }) %>
+      </form>
+    <% } %>
+  </section>
+</div>
+
+<section class="caja">
+  <h2>Historial</h2>
+  <% if (historial.length === 0) { %>
+    <p class="nota">Sin movimientos.</p>
+  <% } else { %>
+    <ul class="historial">
+      <% historial.forEach((h) => { %>
+        <li>
+          <span class="nowrap"><%= fecha(h.fecha) %></span> ·
+          <strong><%= h.usuario || 'Sistema' %></strong> ·
+          <% if (h.campo === 'creacion') { %>
+            Ticket creado
+          <% } else { %>
+            <%= h.campo === 'estado' ? 'Estado' : h.campo === 'responsable' ? 'Responsable' : 'Prioridad' %>:
+            <%= h.valor_anterior || '—' %> → <%= h.valor_nuevo || '—' %>
+          <% } %>
+          <% if (h.comentario && h.campo !== 'creacion') { %><em>“<%= h.comentario %>”</em><% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</section>
+
+<%- include('partials/pie') %>

@@ -1,0 +1,81 @@
+<%- include('partials/cabecera', { titulo }) %>
+
+<h1>Solicitudes de soporte</h1>
+
+<% if (ok) { %>
+  <div class="alerta exito" role="status">
+    <%= ok %><% if (codigo) { %> Código: <strong><%= codigo %></strong><% } %>
+  </div>
+<% } %>
+
+<section class="resumen" aria-label="Resumen por estado">
+  <div class="tarjeta total"><span>Total</span><strong><%= resumen.total %></strong></div>
+  <% resumen.porEstado.forEach((r) => { %>
+    <a class="tarjeta estado-<%= clase(r.estado) %>" href="/?estado=<%= encodeURIComponent(r.estado) %>">
+      <span><%= r.estado %></span><strong><%= r.cantidad %></strong>
+    </a>
+  <% }) %>
+</section>
+
+<form class="filtros" method="get" action="/">
+  <label>Estado
+    <select name="estado">
+      <option value="">Todos</option>
+      <% estados.forEach((e) => { %><option <%= e === filtros.estado ? 'selected' : '' %>><%= e %></option><% }) %>
+    </select>
+  </label>
+  <label>Prioridad
+    <select name="prioridad">
+      <option value="">Todas</option>
+      <% prioridades.forEach((p) => { %><option <%= p === filtros.prioridad ? 'selected' : '' %>><%= p %></option><% }) %>
+    </select>
+  </label>
+  <label>Categoría
+    <select name="categoriaId">
+      <option value="">Todas</option>
+      <% categorias.forEach((c) => { %>
+        <option value="<%= c.id %>" <%= c.id === filtros.categoriaId ? 'selected' : '' %>><%= c.nombre %></option>
+      <% }) %>
+    </select>
+  </label>
+  <button type="submit" class="boton primario">Filtrar</button>
+  <% if (hayFiltros) { %><a class="boton" href="/">Limpiar</a><% } %>
+</form>
+
+<% if (tickets.length === 0) { %>
+  <% if (hayFiltros) { %>
+    <p class="vacio">Ninguna solicitud coincide con los filtros. <a href="/">Ver todas</a>.</p>
+  <% } else { %>
+    <p class="vacio">No hay solicitudes registradas. <a href="/tickets/nuevo">Registrar la primera</a>.</p>
+  <% } %>
+<% } else { %>
+  <div class="tabla-scroll">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Código</th><th>Título</th><th>Categoría</th><th>Prioridad</th>
+          <th>Estado</th><th>Responsable</th><th>Creado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tickets.forEach((t) => { %>
+          <tr>
+            <td><a href="/tickets/<%= t.id %>"><%= t.codigo %></a></td>
+            <td><a href="/tickets/<%= t.id %>"><%= t.titulo %></a></td>
+            <td><%= t.categoria %></td>
+            <td><span class="etiqueta prioridad-<%= clase(t.prioridad) %>"><%= t.prioridad %></span></td>
+            <td><span class="etiqueta estado-<%= clase(t.estado) %>"><%= t.estado %></span></td>
+            <td><%= t.responsable || 'Sin asignar' %></td>
+            <td class="nowrap"><%= fecha(t.fecha_creacion) %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">
+    <%= tickets.length %> solicitud(es)<%= hayFiltros ? ` de ${resumen.total} (filtradas)` : '' %>,
+    de la más reciente a la más antigua.
+  </p>
+<% } %>
+
+<%- include('partials/pie') %>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframes Mesa de Soporte</title>
+<style>
+  :root { --ink:#333; --line:#888; --soft:#e6e6e6; --paper:#fff; --bg:#f3f3f0; --note:#fff7c2; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.45 "Comic Sans MS","Segoe Print",system-ui,sans-serif; padding:24px 16px 60px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { margin:0 0 28px; color:#666; }
+  .screen { max-width:960px; margin:0 auto 40px; }
+  .screen > h2 { font-size:17px; margin:0 0 8px; }
+  .frame { background:var(--paper); border:2px solid var(--ink); border-radius:6px; overflow:hidden; }
+  .bar { border-bottom:2px solid var(--ink); padding:8px 14px; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+  .logo { font-weight:bold; }
+  .content { padding:16px; }
+  .btn { display:inline-block; border:2px solid var(--ink); border-radius:4px; padding:4px 12px; background:var(--soft); white-space:nowrap; }
+  .btn.primary { background:var(--ink); color:#fff; }
+  .row { display:flex; gap:12px; flex-wrap:wrap; }
+  .card { flex:1 1 120px; border:2px dashed var(--line); border-radius:4px; padding:10px; text-align:center; }
+  .card b { display:block; font-size:22px; }
+  .field { border:2px solid var(--line); border-radius:4px; padding:6px 8px; color:#999; background:#fafafa; min-width:140px; }
+  .field.big { min-height:70px; }
+  .field.err { border-color:#b33; }
+  .err-msg { color:#b33; font-size:12px; margin-top:2px; }
+  label { display:block; font-weight:bold; margin:10px 0 3px; }
+  table { width:100%; border-collapse:collapse; margin-top:12px; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; }
+  th { background:var(--soft); }
+  .scroll { overflow-x:auto; }
+  .note { background:var(--note); border:1px solid #d9c96a; padding:6px 10px; margin-top:12px; font-size:12px; border-radius:4px; }
+  .two { display:grid; grid-template-columns: 1.3fr 1fr; gap:16px; }
+  .box { border:2px solid var(--line); border-radius:4px; padding:10px; }
+  .timeline li { margin-bottom:6px; }
+  .alert { border:2px solid var(--ink); border-radius:4px; padding:12px; margin-bottom:12px; }
+  @media (max-width:700px){ .two{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<div class="screen">
+  <h1>Mesa de Soporte TI — Wireframes v1.0</h1>
+  <p class="sub">H2 · 30-09 · Bocetos de baja fidelidad (sin colores ni estilos finales)</p>
+</div>
+
+<!-- 1. LISTADO -->
+<div class="screen">
+  <h2>Pantalla 1 · Listado de solicitudes (inicio) — RF-03, RF-05, RF-06</h2>
+  <div class="frame">
+    <div class="bar"><span class="logo">[ Logo ] Mesa de Soporte TI</span><span>Usuario actual: <span class="field">Felipe Vargas ▾</span></span></div>
+    <div class="content">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <strong>Resumen</strong><span class="btn primary">+ Nueva solicitud</span>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div class="card">Total<b>6</b></div>
+        <div class="card">Nuevo<b>2</b></div>
+        <div class="card">En proceso<b>2</b></div>
+        <div class="card">Resuelto<b>1</b></div>
+        <div class="card">Cerrado<b>1</b></div>
+      </div>
+      <div class="row" style="margin-top:16px;align-items:center">
+        <span class="field">Estado: Todos ▾</span>
+        <span class="field">Prioridad: Todas ▾</span>
+        <span class="field">Categoría: Todas ▾</span>
+        <span class="btn">Filtrar</span><span class="btn">Limpiar</span>
+      </div>
+      <div class="scroll">
+      <table>
+        <tr><th>Código</th><th>Título</th><th>Categoría</th><th>Prioridad</th><th>Estado</th><th>Responsable</th><th>Creado</th><th></th></tr>
+        <tr><td>TKT-000006</td><td>WiFi lento en sala…</td><td>Red</td><td>Media</td><td>Nuevo</td><td><i>Sin asignar</i></td><td>03-10 16:00</td><td><u>Ver</u></td></tr>
+        <tr><td>TKT-000005</td><td>Restablecer contraseña…</td><td>Accesos</td><td>Alta</td><td>En proceso</td><td>Elena Soto</td><td>02-10 14:20</td><td><u>Ver</u></td></tr>
+        <tr><td>TKT-000004</td><td>Impresora 2° piso…</td><td>Impresoras</td><td>Baja</td><td>Cerrado</td><td>Diego Rojas</td><td>02-10 08:45</td><td><u>Ver</u></td></tr>
+        <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td></td></tr>
+      </table>
+      </div>
+      <div class="note">Nota: ordenado del más reciente al más antiguo. Los filtros se combinan (AND). El resumen siempre muestra el total general.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. NUEVA SOLICITUD -->
+<div class="screen">
+  <h2>Pantalla 2 · Nueva solicitud — RF-01, CAL-01</h2>
+  <div class="frame">
+    <div class="bar"><span class="logo">[ Logo ] Mesa de Soporte TI</span><span>← Volver al listado</span></div>
+    <div class="content" style="max-width:560px">
+      <label>Solicitante *</label><div class="field">Seleccione usuario ▾</div>
+      <label>Título *</label><div class="field err">&nbsp;</div><div class="err-msg">El título es obligatorio (5 a 120 caracteres)</div>
+      <label>Descripción *</label><div class="field big">Describa el problema…</div>
+      <div class="row">
+        <div style="flex:1"><label>Categoría *</label><div class="field">Seleccione ▾</div></div>
+        <div style="flex:1"><label>Prioridad *</label><div class="field">Media ▾</div></div>
+      </div>
+      <div class="row" style="margin-top:16px"><span class="btn primary">Registrar solicitud</span><span class="btn">Cancelar</span></div>
+      <div class="note">Código y fecha NO se ingresan: los genera el sistema (RF-02). Mensajes de error bajo cada campo.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. DETALLE -->
+<div class="screen">
+  <h2>Pantalla 3 · Detalle y actualización — RF-04, BD-01</h2>
+  <div class="frame">
+    <div class="bar"><span class="logo">[ Logo ] Mesa de Soporte TI</span><span>← Volver al listado</span></div>
+    <div class="content">
+      <h3 style="margin:0 0 10px">TKT-000005 · Restablecer contraseña de ERP</h3>
+      <div class="two">
+        <div class="box">
+          <p><b>Solicitante:</b> Carla Muñoz (Ventas)</p>
+          <p><b>Categoría:</b> Accesos &nbsp; <b>Prioridad:</b> Alta</p>
+          <p><b>Creado:</b> 02-10-2026 14:20 &nbsp; <b>Actualizado:</b> 02-10-2026 14:35</p>
+          <p><b>Descripción:</b><br>Olvidé mi contraseña del ERP y quedó bloqueada la cuenta.</p>
+        </div>
+        <div class="box">
+          <label style="margin-top:0">Responsable</label>
+          <div class="row"><span class="field">Elena Soto ▾</span><span class="btn">Asignar</span></div>
+          <label>Estado</label>
+          <div class="row"><span class="field">En proceso ▾</span><span class="btn">Actualizar</span></div>
+          <label>Comentario (opcional)</label><div class="field">…</div>
+          <div class="note">Solo se ofrecen los estados permitidos según el flujo.</div>
+        </div>
+      </div>
+      <div class="box" style="margin-top:16px">
+        <b>Historial</b>
+        <ul class="timeline">
+          <li>02-10 14:35 · Elena Soto · Estado: Nuevo → En proceso</li>
+          <li>02-10 14:30 · Felipe Vargas · Responsable: — → Elena Soto</li>
+          <li>02-10 14:20 · Carla Muñoz · Ticket creado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. MENSAJES -->
+<div class="screen">
+  <h2>Pantalla 4 · Confirmación y error — RF-02, CAL-01</h2>
+  <div class="frame">
+    <div class="bar"><span class="logo">[ Logo ] Mesa de Soporte TI</span></div>
+    <div class="content">
+      <div class="alert">✔ Solicitud registrada con el código <b>TKT-000007</b> el 30-09-2026 18:42.</div>
+      <div class="alert">✖ No se puede cambiar a "En proceso": primero asigne un responsable.</div>
+      <div class="alert">✖ Ticket no encontrado. <u>Volver al listado</u></div>
+      <div class="note">Los mensajes aparecen arriba de la pantalla correspondiente (mensaje en la parte superior tras redirigir).</div>
+    </div>
+  </div>
+</div>
+
+<!-- FLUJO -->
+<div class="screen">
+  <h2>Flujo de navegación</h2>
+  <div class="frame"><div class="content">
+    Listado ──[+ Nueva solicitud]──▶ Nueva solicitud ──[Registrar]──▶ Listado + mensaje ✔<br>
+    Listado ──[Ver]──▶ Detalle ──[Asignar / Actualizar]──▶ Detalle + mensaje ✔/✖
+  </div></div>
+</div>
+
+</body>
+</html>
