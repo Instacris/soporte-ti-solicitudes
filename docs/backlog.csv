@@ -1,0 +1,25 @@
+ID,Titulo,Descripcion,Requisito,Prioridad,Estimacion_h,Responsable,Fecha_objetivo,Hito,Estado
+T-00,Imprevisto: inicio tardio y equipo de 2,H1 no ejecutado el 29-09 y equipo reducido a 2 integrantes. Accion: consolidar H1+H2 el 30-09 y adaptar rotacion,-,Must,1,Cristóbal Chacón,2026-09-30,H1,Bloqueado
+T-01,Crear repositorio y README,Repositorio GitHub con README y colaborador agregado,-,Must,1,Cristóbal Chacón,2026-09-30,H1,Hecho
+T-02,Crear tablero y backlog inicial,Columnas Backlog/Por hacer/En curso/En revision/Hecho/Bloqueado + tareas,-,Must,2,Cristóbal Chacón,2026-09-30,H1,Hecho
+T-03,Problema objetivo alcance e historias,Documento 01_H1_inicio.md con 9 historias de usuario,-,Must,4,Cristóbal Chacón,2026-09-30,H1,Hecho
+T-04,Modelo de datos conceptual,Entidades Usuario Categoria Ticket Historial y relaciones,BD-01,Must,2,Cristóbal Chacón,2026-09-30,H1,Hecho
+T-05,Alcance v1.0 EDT y cronograma,Criterios de aceptacion + EDT + Gantt,-,Must,4,Milton Zambrano,2026-09-30,H2,Hecho
+T-06,Estimacion de horas recursos y costos,Horas por paquete EDT y costo en CLP,-,Must,3,Milton Zambrano,2026-09-30,H2,Hecho
+T-07,Diagrama ER y scripts SQL,schema.sql + seed.sql probados en SQLite,BD-01,Must,4,Milton Zambrano,2026-09-30,H2,Hecho
+T-08,Wireframes,Bocetos de listado / nueva solicitud / detalle,RF-01..06,Must,4,Cristóbal Chacón,2026-09-30,H2,Hecho
+T-09,Arquitectura preliminar,Diagrama 3 capas + rutas + estructura de carpetas,-,Must,3,Cristóbal Chacón,2026-09-30,H2,Hecho
+T-10,Plan de pruebas inicial,14 casos de prueba asociados a requisitos,CAL-01,Must,3,Milton Zambrano,2026-09-30,H2,Hecho
+T-11,Estructura base Express + SQLite,App Express que abre la BD y muestra pagina base,BD-01,Must,3,Cristóbal Chacón,2026-10-01,H3,Hecho
+T-12,Registro de ticket,Formulario + guardado + codigo TKT y fecha,RF-01 RF-02,Must,6,Cristóbal Chacón,2026-10-02,H3,Hecho
+T-13,Listado de tickets,Tabla con estado prioridad y responsable,RF-03,Must,4,Cristóbal Chacón,2026-10-03,H3,Hecho
+T-14,Asignar responsable y cambiar estado,Actualizacion con reglas de flujo + historial,RF-04,Must,6,Cristóbal Chacón,2026-10-05,H3,Hecho
+T-15,Validaciones y manejo de errores,Validacion servidor + paginas de error amigables,CAL-01,Must,4,Cristóbal Chacón,2026-10-05,H3,Hecho
+T-16,Pruebas funcionales iniciales,Ejecutar CP-01 a CP-09 (automatizadas + manuales) y registrar defectos como issues,CAL-01,Must,5,Cristóbal Chacón,2026-10-06,H3,Hecho
+T-17,Reporte de Avance N.1,Planificado vs real + bloqueos + decisiones,-,Must,2,Cristóbal Chacón,2026-10-06,H3,Por hacer
+T-18,Filtros,Filtro por estado prioridad y categoria,RF-05,Should,4,Cristóbal Chacón,2026-10-06,H3/H4,Hecho
+T-19,Resumen por estado,Total y cantidad por estado sobre el listado,RF-06,Should,3,Cristóbal Chacón,2026-10-07,H4,Hecho
+T-20,Integracion QA retest y analisis de cambio,Pruebas CP-10 a CP-14 + retest + registro del imprevisto,CAL-01,Must,7,Equipo,2026-10-07,H4,Backlog
+T-21,Reporte de Avance N.2,Planificado vs real + cambio/imprevisto,-,Must,2,Equipo,2026-10-07,H4,Backlog
+T-22,Informe final presentacion y demo,Informe 12-18 paginas + presentacion + paquete final,-,Must,18,Equipo,2026-10-13,Final,Backlog
+T-23,Mejoras visuales / exportar CSV,Opcional si sobra tiempo,-,Could,4,Sin asignar,2026-10-12,Final,Backlog
