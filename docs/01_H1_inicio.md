@@ -1,6 +1,6 @@
-# H1 — Inicio y planificación
+H1 — Inicio y planificación
 
-**Fecha programada:** 29-09 · **Fecha real de ejecución:** 30-09 (inicio tardío, ver §9)
+Fecha programada: 29-09 · Fecha real de ejecución: 30-09
 
 **Roles en este hito:** Líder de Proyecto y Control: Cristóbal Chacón · Solución y Desarrollo: Milton Zambrano · Datos, Calidad y Pruebas: Cristóbal Chacón
 
