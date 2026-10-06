@@ -2,9 +2,9 @@ H1 — Inicio y planificación
 
 Fecha programada: 29-09 · Fecha real de ejecución: 30-09
 
-**Roles en este hito:** Líder de Proyecto y Control: Cristóbal Chacón · Solución y Desarrollo: Milton Zambrano · Datos, Calidad y Pruebas: Cristóbal Chacón
+Roles en este hito: Líder de Proyecto y Control: Cristóbal Chacón · Solución y Desarrollo: Milton Zambrano · Datos, Calidad y Pruebas: Cristóbal Chacón
 
-## 1. Problema
+1. Problema
 
 La organización recibe los requerimientos de soporte TI por correo, mensajería y conversaciones informales.
 No existe un registro único, por lo que:
@@ -14,19 +14,19 @@ No existe un registro único, por lo que:
 - no se conoce el estado de una solicitud ni cuánto tardó en resolverse;
 - las solicitudes se pierden o se duplican y no hay datos para mejorar el servicio.
 
-## 2. Objetivo
+2. Objetivo
 
 **Objetivo general:** construir, al 13-10, un MVP web que permita registrar una solicitud de soporte y
 seguirla hasta su cierre, con persistencia en una base de datos relacional y trazabilidad de responsable,
 prioridad, estado y fechas.
 
-**Objetivos específicos**
+Objetivos específicos
 1. Centralizar el registro de solicitudes en un único sistema con identificador único y fecha.
 2. Permitir asignar responsable y actualizar el estado según un flujo definido.
 3. Consultar y filtrar solicitudes y ver un resumen por estado.
 4. Gestionar el proyecto con tablero, repositorio y reportes de avance trazables.
 
-## 3. Alcance v0.1
+3. Alcance v0.1
 
 | Incluye | No incluye (fuera de alcance) |
 |---|---|
@@ -39,7 +39,7 @@ prioridad, estado y fechas.
 | Historial de cambios relevantes | Despliegue en la nube / producción |
 | Base de datos relacional con usuarios, categorías, tickets e historial | Reportes gráficos avanzados |
 
-## 4. Historias de usuario
+4. Historias de usuario
 
 | ID | Historia | Requisito |
 |---|---|---|
@@ -53,7 +53,7 @@ prioridad, estado y fechas.
 | HU-08 | Como **coordinador de TI**, quiero que quede registro de quién cambió el estado o el responsable y cuándo, para tener trazabilidad. | BD-01 |
 | HU-09 | Como **usuario**, quiero que el sistema me avise si dejé campos obligatorios vacíos, para no registrar solicitudes incompletas. | CAL-01 |
 
-## 5. Equipo y roles asignados
+5. Equipo y roles asignados
 
 El enunciado plantea equipos de 3 integrantes; **este equipo tiene 2**. Se mantiene la regla de que cada integrante
 ejerce los tres roles al menos una vez: en cada hito una persona asume dos roles y se alternan.
@@ -67,7 +67,7 @@ ejerce los tres roles al menos una vez: en cada hito una persona asume dos roles
 
 Resultado: al cierre de H2 ambos integrantes ya ejercieron los tres roles.
 
-## 6. Cronograma preliminar
+6. Cronograma preliminar
 
 | Fecha | Hito | Entregable principal |
 |---|---|---|
@@ -77,7 +77,7 @@ Resultado: al cierre de H2 ambos integrantes ya ejercieron los tres roles.
 | 07-10 | H4 Integración | RF-05/06, QA, cambio + Reporte N.º 2 |
 | 13-10 | Final | MVP v1.0, informe, presentación |
 
-## 7. Modelo de datos conceptual
+7. Modelo de datos conceptual
 
 - **Usuario**: persona que solicita o atiende (solicitante, técnico o administrador).
 - **Categoría**: tipo de solicitud (Hardware, Software, Red, Accesos, Impresoras, Otro).
@@ -109,7 +109,7 @@ flowchart LR
 Pantallas previstas: **Listado de solicitudes** (inicio), **Nueva solicitud**, **Detalle / actualizar**.
 Los wireframes detallados se entregan en H2.
 
-## 9. Imprevisto registrado: inicio tardío y equipo de 2
+9. Imprevisto registrado: inicio tardío y equipo de 2
 
 | | |
 |---|---|
@@ -118,22 +118,22 @@ Los wireframes detallados se entregan en H2.
 | **Acción** | Se consolidan H1 y H2 el 30-09; se adapta la rotación de roles a 2 personas; se prioriza con MoSCoW para proteger los requisitos *Must*. |
 | **Registro en tablero** | Tarjeta "Inicio tardío / equipo de 2" en columna Bloqueado → Hecho. |
 
-## 10. Evidencia del hito
+10. Evidencia del hito
 
 - [ ] Captura del tablero con fecha → `docs/evidencias/H1_tablero.png`
-- [ ] Enlace al repositorio
+- [x] Enlace al repositorio
 - [x] Minuta del hito (abajo)
 
 ---
 
-## Minuta H1 — 30-09
+Minuta H1 — 30-09
 
 | | |
 |---|---|
 | **Asistentes** | Cristóbal Chacón (Líder, Datos/QA), Milton Zambrano (Desarrollo) |
 | **Objetivo** | Iniciar el proyecto y dejar definida la planificación inicial |
 
-**Temas tratados**
+Temas tratados
 1. Lectura del enunciado y definición del problema y objetivo.
 2. Definición del alcance v0.1 (incluye / no incluye).
 3. Redacción de 9 historias de usuario asociadas a RF-01..RF-06, BD-01 y CAL-01.
@@ -141,7 +141,7 @@ Los wireframes detallados se entregan en H2.
 5. Elección tecnológica: Node.js + Express + SQLite (ver justificación en H2).
 6. Adaptación de la rotación de roles a 2 integrantes.
 
-**Acuerdos**
+Acuerdos
 
 | # | Acuerdo | Responsable | Fecha |
 |---|---|---|---|
