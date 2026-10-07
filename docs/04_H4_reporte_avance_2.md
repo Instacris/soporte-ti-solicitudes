@@ -5,10 +5,10 @@
 **Versión del producto:** MVP v0.9
 
 ## 1. Resumen
-El MVP integra RF-01 a RF-06: registro, listado, asignación, estados, filtros y resumen por estado, con persistencia en SQLite e historial de cambios. En este hito se ejecutaron pruebas de regresión e integración (`docs/04_H4_pruebas_integracion.md`), se analizó un imprevisto de recursos (`docs/04_H4_registro_cambio.md`, CR-01) y se redistribuyó el trabajo restante entre los dos integrantes.
+El MVP integra RF-01 a RF-06: registro, listado, asignación, estados, filtros y resumen por estado, con persistencia en SQLite e historial de cambios. En este hito se ejecutaron pruebas de regresión e integración (`docs/04_H4_pruebas_integracion.md`).
 
 ## 2. Roles del hito
-El 07-10 es de integración conjunta. Reparto acordado:
+El 07-10 es de integración conjunta. 
 | Integrante | Trabajo del H4 |
 |---|---|
 | Milton Zambrano | Pruebas de integración y QA (T-20), retest, registro del cambio, este reporte (T-21) |
@@ -26,9 +26,6 @@ El 07-10 es de integración conjunta. Reparto acordado:
 
 **Lectura:** el producto está completo en funciones (RF-01 a RF-06) un hito antes de lo planificado, y el trabajo pendiente es de documentación y cierre.
 
-## 4. Cambio o imprevisto tratado
-CR-01: concentración del desarrollo en un integrante y redistribución del trabajo restante. Detalle, análisis de impacto y decisión en `docs/04_H4_registro_cambio.md`. El alcance y el cronograma no cambian; sí cambia la asignación de responsables en el tablero.
-
 ## 5. Calidad y pruebas
 - Regresión: `npm test` con los 20 casos del H3.
 - Integración: INT-01 a INT-04 (automatizadas) y M-01 a M-05 (manuales), en `docs/04_H4_pruebas_integracion.md`.
@@ -38,7 +35,7 @@ CR-01: concentración del desarrollo en un integrante y redistribución del trab
 ## 6. Riesgos y bloqueos
 | ID | Riesgo | Estado |
 |---|---|---|
-| R-01 | Trabajo concentrado en un integrante | Mitigado con CR-01 |
+| R-01 | Trabajo concentrado en un integrante | Mitigado  |
 | R-02 | Fechas de backlog y pruebas no coinciden | En tratamiento (Cristóbal) |
 | R-03 | La app exige Node 22.13 o superior | Cerrado, indicado en el README |
 | R-04 | Sin inicio de sesión | Aceptado como limitación del MVP; se declara en el informe |
