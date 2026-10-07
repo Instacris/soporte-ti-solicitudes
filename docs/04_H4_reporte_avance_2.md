@@ -50,5 +50,4 @@ Informe final de 12 a 18 páginas, presentación, demo y paquete de entrega del 
 ## 8. Evidencias
 - Tablero con captura del 07-10: `docs/evidencias/2026-10-07_H4_tablero_kanban.jpg`
 - Matriz de pruebas y capturas: `docs/04_H4_pruebas_integracion.md` y `docs/evidencias/`
-- Registro del cambio: `docs/04_H4_registro_cambio.md`
 - Commits de ambos integrantes: pestaña *Commits* del repositorio
